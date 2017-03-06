@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div>
+  		<ul>
+  			
+  			<li><% link_to "blog", root_path%></li>
+  			<li><%= link_to "Home",   '/' %></li>
+  		</ul>
+
+  		<ul>
+  			<li class="category">social</li>
+  			<li></li>
+  			<li></li>
+  		</ul>
+  		<p class="sign_in">Admin Login</p>
+  		</div>
+
+  		<div is="main_content">
+  			<div id="header">
+  				<p>All Posts</p>
+  				<div class="buttons">
+  					<button class="button">
+  						<%=link_to "New Post", new_post_path %>
+  					</button>
+            <%= link_to destroy_user_session_path,
+              method: :delete do%>
+  					<button class="button">log out</button>
+          <%end %>
+
+  				</div>
+  				
+  			</div>
+
+         <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+  			
+  			<%= yield %>
+  		</div>
+  </body>
+</html>
